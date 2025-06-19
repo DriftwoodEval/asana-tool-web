@@ -19,9 +19,9 @@ services:
      - ASANA_TOKEN=${ASANA_TOKEN}
      - ASANA_WORKSPACE=${ASANA_WORKSPACE}
 
-  cloudflared:
+  cloudflared-asana-tool-web:
     image: cloudflare/cloudflared:latest
-    container_name: cloudflared
+    container_name: cloudflared-asana-tool-web
     command: tunnel --no-autoupdate run --token
       ${CF_TOKEN}
     restart: always
