@@ -1,5 +1,5 @@
 import type { DefaultSession, NextAuthConfig } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import Google from "next-auth/providers/google";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -29,7 +29,7 @@ declare module "next-auth" {
  */
 export const authConfig = {
 	providers: [
-		DiscordProvider,
+		Google,
 		/**
 		 * ...add more providers here.
 		 *
