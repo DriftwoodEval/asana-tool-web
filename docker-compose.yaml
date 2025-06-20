@@ -19,7 +19,14 @@ services:
      - ASANA_TOKEN=${ASANA_TOKEN}
      - ASANA_WORKSPACE=${ASANA_WORKSPACE}
 
-  cloudflared-asana-tool-web:
+  redis:
+    image: redis:alpine
+    container_name: redis-asana-tool-web
+    restart: always
+    ports:
+      - 6379:6379
+
+  cloudflared:
     image: cloudflare/cloudflared:latest
     container_name: cloudflared-asana-tool-web
     command: tunnel --no-autoupdate run --token

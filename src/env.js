@@ -19,6 +19,7 @@ export const env = createEnv({
 			.default("development"),
 		ASANA_TOKEN: z.string(),
 		ASANA_WORKSPACE: z.string(),
+		REDIS_HOST: z.string(),
 	},
 
 	/**
@@ -42,6 +43,7 @@ export const env = createEnv({
 		NODE_ENV: process.env.NODE_ENV,
 		ASANA_TOKEN: process.env.ASANA_TOKEN,
 		ASANA_WORKSPACE: process.env.ASANA_WORKSPACE,
+		REDIS_HOST: process.env.REDIS_HOST,
 		// NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 	},
 	/**
