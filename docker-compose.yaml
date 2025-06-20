@@ -6,8 +6,6 @@ services:
       args:
         NEXT_PUBLIC_CLIENTVAR: "clientvar"
     working_dir: /app
-    ports:
-      - 3000:3000
     image: asana-tool-web
     container_name: asana-tool-web
     environment:
@@ -32,4 +30,3 @@ services:
     command: tunnel --no-autoupdate run --token
       ${CF_TOKEN}
     restart: always
-    network_mode: host
