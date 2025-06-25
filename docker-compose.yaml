@@ -5,17 +5,18 @@ services:
       dockerfile: Dockerfile
       args:
         NEXT_PUBLIC_CLIENTVAR: "clientvar"
+    restart: always
     working_dir: /app
     image: asana-tool-web
     container_name: asana-tool-web
     environment:
-     - AUTH_SECRET=${AUTH_SECRET}
-     - AUTH_TRUST_HOST=true
-     - AUTH_GOOGLE_ID=${AUTH_GOOGLE_ID}
-     - AUTH_GOOGLE_SECRET=${AUTH_GOOGLE_SECRET}
-     - AUTH_URL=${AUTH_URL}
-     - ASANA_TOKEN=${ASANA_TOKEN}
-     - ASANA_WORKSPACE=${ASANA_WORKSPACE}
+      - AUTH_SECRET=${AUTH_SECRET}
+      - AUTH_TRUST_HOST=true
+      - AUTH_GOOGLE_ID=${AUTH_GOOGLE_ID}
+      - AUTH_GOOGLE_SECRET=${AUTH_GOOGLE_SECRET}
+      - AUTH_URL=${AUTH_URL}
+      - ASANA_TOKEN=${ASANA_TOKEN}
+      - ASANA_WORKSPACE=${ASANA_WORKSPACE}
 
   redis:
     image: redis:alpine
