@@ -22,8 +22,6 @@ services:
     image: redis:alpine
     container_name: redis-asana-tool-web
     restart: always
-    ports:
-      - 6379:6379
 
   cloudflared:
     image: cloudflare/cloudflared:latest
