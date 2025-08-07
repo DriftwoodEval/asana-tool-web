@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { getColorFromMap, isColorKey } from "~/server/utils";
+import { asanaColorMap, getColorFromMap, isColorKey } from "~/server/utils";
 import { api } from "~/trpc/react";
 
 export default function ClientList({ name }: { name: string }) {
@@ -34,6 +34,10 @@ export default function ClientList({ name }: { name: string }) {
 		);
 	}
 
+	const originalColor = Object.keys(asanaColorMap).find(
+		(key) => asanaColorMap[key as keyof typeof asanaColorMap] === name,
+	);
+
 	const filteredProjects = projects
 		.map((project: { color: string; name?: string }) => ({
 			...project,
@@ -41,7 +45,7 @@ export default function ClientList({ name }: { name: string }) {
 		}))
 		.filter(
 			(project: { color: string; name: string }) =>
-				project.color === name &&
+				[name, originalColor].includes(project.color) &&
 				project.name.toLowerCase().includes(search.toLowerCase()),
 		);
 

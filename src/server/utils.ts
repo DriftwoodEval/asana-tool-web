@@ -17,10 +17,20 @@ const colorMap = {
   "cool-gray": "#aaa",
 };
 
+export const asanaColorMap = {
+  "dark-teal": "aqua",
+  "light-blue": "blue",
+  "light-purple": "purple",
+};
+
 export function isColorKey(key: string): key is keyof typeof colorMap {
   return key in colorMap;
 }
 
 export function getColorFromMap(key: string): string {
   return colorMap[key as keyof typeof colorMap];
+}
+
+export function mapAsanaColor(color: string): string {
+  return asanaColorMap[color as keyof typeof asanaColorMap] ?? color;
 }

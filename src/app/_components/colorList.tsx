@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { getColorFromMap, isColorKey } from "~/server/utils";
+import { getColorFromMap, isColorKey, mapAsanaColor } from "~/server/utils";
 import { api } from "~/trpc/react";
 
 export default function ColorList() {
@@ -33,9 +33,8 @@ export default function ColorList() {
 	let colors: { color: string; count: number }[] = [];
 	for (const project of projects) {
 		if (project.color) {
-			const existingColor = colors.find(
-				(color) => color.color === project.color,
-			);
+			const mappedColor = mapAsanaColor(project.color);
+			const existingColor = colors.find((color) => color.color === mappedColor);
 			if (existingColor) {
 				existingColor.count++;
 			} else {
